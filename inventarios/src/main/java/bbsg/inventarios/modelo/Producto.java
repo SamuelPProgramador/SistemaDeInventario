@@ -9,8 +9,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-@Entity
 @Data
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
@@ -21,4 +21,14 @@ public class Producto {
     String descripcion;
     Double precio;
     Integer exitencia;
+
+    @Override
+    public String toString() {
+        return "Producto{" +
+                "idProducto=" + idProducto +
+                ", descripcion='" + descripcion + '\'' +
+                ", precio=" + precio +
+                ", exitencia=" + exitencia +
+                '}';
+    }
 }
