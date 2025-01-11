@@ -20,7 +20,7 @@ public class Producto {
     Integer idProducto;
     String descripcion;
     Double precio;
-    Integer exitencia;
+    Integer existencia;
 
     @Override
     public String toString() {
@@ -28,7 +28,7 @@ public class Producto {
                 "idProducto=" + idProducto +
                 ", descripcion='" + descripcion + '\'' +
                 ", precio=" + precio +
-                ", exitencia=" + exitencia +
+                ", exitencia=" + existencia +
                 '}';
     }
 }
