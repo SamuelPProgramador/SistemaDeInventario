@@ -28,7 +28,39 @@ public class Producto {
                 "idProducto=" + idProducto +
                 ", descripcion='" + descripcion + '\'' +
                 ", precio=" + precio +
-                ", exitencia=" + existencia +
+                ", existencia=" + existencia +
                 '}';
+    }
+
+    public Double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(Double precio) {
+        this.precio = precio;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public Integer getIdProducto() {
+        return idProducto;
+    }
+
+    public void setIdProducto(Integer idProducto) {
+        this.idProducto = idProducto;
+    }
+
+    public Integer getExistencia() {
+        return existencia;
+    }
+
+    public void setExistencia(Integer existencia) {
+        this.existencia = existencia;
     }
 }
