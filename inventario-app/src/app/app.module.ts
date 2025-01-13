@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ProductoListaComponent } from './producto-lista/producto-lista.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AgregarProductoComponent } from './agregar-producto/agregar-producto.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,11 +14,14 @@ import { AgregarProductoComponent } from './agregar-producto/agregar-producto.co
     AppComponent,
     ProductoListaComponent,
     AgregarProductoComponent
+
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
+  
   ],
   providers: [],
   bootstrap: [AppComponent]
