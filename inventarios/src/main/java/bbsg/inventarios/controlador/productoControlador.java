@@ -65,6 +65,7 @@ public class productoControlador {
         this.productoServicio.guardarProducto(producto);
         return ResponseEntity.ok(producto);
     }
+    
     @DeleteMapping("/productos/{id}")
     public ResponseEntity<Map<String, Boolean>>
     eliminarProducto(@PathVariable int id){
