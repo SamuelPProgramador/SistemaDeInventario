@@ -1,12 +1,15 @@
 package bbsg.inventarios.controlador;
 
+import bbsg.inventarios.excepcion.RecursoNoEncontradoExepcion;
 import bbsg.inventarios.modelo.Producto;
 import bbsg.inventarios.servicio.ProductoServicio;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.nio.file.Path;
 import java.util.List;
 
 @RestController
@@ -33,6 +36,31 @@ public class productoControlador {
     public Producto agregarProducto(@RequestBody Producto producto){
         logger.info("Producto a agregar" + producto);
         return  this.productoServicio.guardarProducto(producto);
+    }
+    @GetMapping("/productos/{id}")
+    public ResponseEntity <Producto> obtenerProductoPorId(@PathVariable int id){
+        Producto producto = this.productoServicio.buscarProductoPorId(id);
+        if(producto != null){
+            return ResponseEntity.ok(producto);
+        }
+        else{
+            throw  new RecursoNoEncontradoExepcion("No se ha encontrado ese id:" + id);
+        }
+
+    }
+
+    @PutMapping("/productos/{id}")
+    public ResponseEntity<Producto> actualizarProducto(
+            @PathVariable int id,
+            @RequestBody Producto productoRecibido){
+
+        Producto producto = this.productoServicio.buscarProductoPorId(id);
+        producto.setDescripcion(productoRecibido.getDescripcion());
+        producto.setPrecio(productoRecibido.getPrecio());
+        producto.setExistencia(productoRecibido.getExistencia());
+        this.productoServicio.guardarProducto(producto);
+        return ResponseEntity.ok(producto);
+        
     }
 
 }
